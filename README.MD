@@ -48,7 +48,7 @@ The segment data contains a number of structs (one struct per archived file) tha
 5. Chunk, the size of the resulting chunk, after decompression, except when the file is smaller than the chunk size, or it is the last chunk of the file.
 
 ### Name Segment
-The name segment consists of the segment header, as in information segment, and the deflated linear representation of multiple zero-terminated file names. The file names can have '\' (backslash) characters to indicate nested structure of the archive.
+The name segment consists of the segment header, as in information segment, and the deflated linear representation of multiple zero-terminated file names. The file names can have '&bsol;' (backslash) characters to indicate nested structure of the archive.
 
 ### Offset Segment
 The offset segment, similar to previous segments consisits of the header and deflated array of unsigned integers that represent **absolute** offsets into the file, where each chunk is being stored.
