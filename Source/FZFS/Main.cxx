@@ -242,7 +242,7 @@ VOID UnpackArchiveFile(HANDLE handle, LPCSTR file, LPCSTR dir)
     UINT* offsets = NULL;
     if (!AcquireArchiveFileSegment(handle, (LPVOID*)&offsets, NULL))
     {
-        printf("Unable to read file %s, the file is invalid or truncated.\r\n", file); free(files); return;
+        printf("Unable to read file %s, the file is invalid or truncated.\r\n", file); free(names); free(files); return;
     }
 
     ADDR offset = 0;
@@ -277,6 +277,8 @@ VOID UnpackArchiveFile(HANDLE handle, LPCSTR file, LPCSTR dir)
         CloseHandle(h);
     }
 
+    free(offsets);
+    free(names);
     free(files);
 }
 
